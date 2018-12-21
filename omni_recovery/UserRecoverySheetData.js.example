@@ -1,0 +1,86 @@
+// BTC.com api keys. You will need to create an account/generate these on https://dev.btc.com
+
+//Enter the API Key you generated
+const API_KEY = ""
+
+//Enter the corresponding secret for the API Key above
+const API_SECRET = ""
+
+
+
+//The following information will need to be pulled from your Bitcoin Wallet Recovery Data Sheet. 
+
+//Applicable for v3 Wallets only
+
+//Enter the Encrypted Primary Seed/Mnemonic from the first page
+const ENCRYPTED_PRIMARY_SEED = "replace with your seed words here"
+
+//Enter the Backup Seed/Mnemonic from the first page (page 1)
+const BACKUP_SEED = "replace with your seed words here"
+
+//Enter the Password Encrypted Secret/Mnemonic from the third page (page 3)
+const PASSWORD_ENCRYPTED_SECRET = "replace with your seed words here"
+
+//Enter a Destination Recovery Address. This should be an Omni Protocol compatible wallet.
+//If you are unsure if your destiantion address support Omni Protocol Send All transactions, 
+//then create a wallet on omniwallet.org and use the address from your wallet there to recover the funds before sending them anywhere else. 
+const RECOVERY_ADDRESS = "replace with your recovery address here"
+
+//Enter your BTC Wallet Public Keys Info, second page (page 2) QR codes
+//Note: For each QR code displayed on your second page (page 2) you will need a new block
+//for each of the keyIndex, path, pubkey fields. You can copy/paste from the template below, ensuring there is a comma after each curly block
+//ex: {keyIndex: x, path: "M/X'", pubkey: 'xpub...'},{keyIndex: x, path: "M/X'", pubkey: 'xpub...'},...,{keyIndex: x, path: "M/X'", pubkey: 'xpub...'}
+//If there is only 1 QR code on your recovery sheet please delete the extra block and make sure their is no comma/"," after the last curly bracket "}"
+
+const BTC_WALLET_PUBLIC_KEYS = [
+  {
+    keyIndex: 0,
+    path:     "M/0'",
+    pubkey:   'replace with your xpub...'
+  },
+  {
+    keyIndex: 9999,
+    path:     "M/9999'",
+    pubkey:   'replace with your xpub...'
+  }
+]
+
+//This setting defines how many addresses to scan the wallet for. 
+//If you have been using the wallet for a long time and have a lot of addresses under https://wallet.btc.com/#/wallet/receive/address-lookup
+//or if the address you are trying to recover from is more than #15 in the list on that page increase this size to scan higher addresses
+const ADDRESS_LIST_SIZE = 8
+
+//Enter your current wallet password
+const CURRENT_PASSWORD = "replace with your password"
+
+//----------------FORGOTTEN PASSWORD-------------------
+//The following is only needed to be filled out/changed If you have forgotten your wallet password.
+//This process requires assistance from btc.com, contact them and ask for your forgotten password wallet decryption key
+//Then proceed with the following configurations
+
+//If using the btc.com recovery decryption key change the following to false. Otherwise leave it set to true
+const USE_PASSWORD = true
+
+//Enter your Encryypted Recovery Secret/Mnemonic from the first page (page 1) of the recovery sheet
+const ENCRYPTED_RECOVERY_SECRET = "replace with your seed"
+
+//Enter the BTC.COM provided decryption key
+const BTC_KEY = "replace with decryption key"
+
+
+//-----------------DO NOT CHANGE ANYTHING BELOW THIS LINE---------------------
+module.exports = {
+ API_KEY,
+ API_SECRET,
+ ENCRYPTED_PRIMARY_SEED,
+ BACKUP_SEED,
+ PASSWORD_ENCRYPTED_SECRET,
+ RECOVERY_ADDRESS,
+ BTC_WALLET_PUBLIC_KEYS,
+ ADDRESS_LIST_SIZE,
+ CURRENT_PASSWORD,
+ USE_PASSWORD,
+ ENCRYPTED_RECOVERY_SECRET,
+ BTC_KEY
+}   
+
